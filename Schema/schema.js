@@ -20,7 +20,7 @@ const {Schema, model} = mongoose;
 //     }
 // });
 
- export const todoModel = model('mad-todos',todoSchema);
+ const todoModel = model('mad-todos',todoSchema);
 //export const todoUserModel = model('mad-todo-users',todoUserSchema);
 export default todoModel;
 
