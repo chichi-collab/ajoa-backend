@@ -27,25 +27,25 @@ app.get('/', (req, res)=>{
 res.json({
     message: 'Welcome to M.A.D todo backend API'
 })
-})
+});
 
 //Get all todos
 app.get('/todos',async (req, res)=>{
-const allTodos = await todoModel.find({});
+const allTodos = await todoModel.find({})
 if(allTodos){
 //success
 return res.status(200).json({
     message: 'Todos fetched successfully',
     data: allTodos
-});
+})
 }else{
 //error
 return res.status(500).json({
     message: 'Ooops!,unable to fetch todos'
-});
+})
 }
 
-})
+});
 
 
 //Get all category todos
@@ -59,14 +59,14 @@ app.get('/todos/:category',async (req, res)=>{
  return res.status(200).json({
      message: `${category} todos fetched successfully`,
      data: todosByCategory
- });
+ })
  }else{
     //error
     return res.status(500).json({
         message: `Ooops!,unable to fetch ${category} todos`
-    });
+    })
  }
-})
+});
 
 //Creating a new todo 
 app.post('/todo', async (req, res)=> {
@@ -87,15 +87,14 @@ return res.status(200).json({
      message: 'Error creating todo'
  })
 }
-})
+});
 
 
 
 //delete a todo
 app.delete('/todo/:id', async (req, res)=> {
 const {id} = req.params;
-const deletedTodo = await todoModel
-.findByIdAndDelete(id);
+const deletedTodo = await todoModel.findByIdAndDelete(id);
 if(deletedTodo){
     //success
     return res.status(200).json({
@@ -108,7 +107,7 @@ if(deletedTodo){
         message: 'Error deleting todo'
     })
 }
-})
+});
 
 
 
